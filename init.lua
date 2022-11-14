@@ -26,7 +26,7 @@ local config = {
   },
 
   -- Set colorscheme to use
-  colorscheme = "material",
+  colorscheme = "neosolarized",
 
   -- Add highlight groups in any theme
   highlights = {
@@ -252,8 +252,10 @@ local config = {
     init = {
       "tpope/vim-surround",
       -- "folke/tokyonight.nvim",
-      "kaicataldo/material.vim",
+      -- "kaicataldo/material.vim",
       -- "marko-cerovac/material.nvim",
+      -- { "lalitmee/cobalt2.nvim", requires = "tjdevries/colorbuddy.nvim" },
+      { "svrana/neosolarized.nvim", requires = "tjdevries/colorbuddy.nvim" },
       {
         "sindrets/diffview.nvim",
         event = "BufRead",
@@ -270,8 +272,8 @@ local config = {
                   { id = "scopes", size = 0.7 },
                   { id = "breakpoints", size = 0.3 },
                 },
-                size = 50, -- 40 columns
-                position = "left",
+                size = 85,
+                position = "right",
               },
             },
           }
@@ -400,6 +402,17 @@ local config = {
     require("nvim-ts-autotag").setup {
       filetypes = { "html", "xml" },
     }
+
+    require("colorbuddy").colorscheme "neosolarized"
+    require("neosolarized").setup {
+      comment_italics = true,
+      background_set = true,
+    }
+    --
+    -- require("neosolarized").setup {
+    --   comment_italics = true,
+    --   background_set = true,
+    -- }
 
     -- Set up custom filetypes
     -- vim.filetype.add {
