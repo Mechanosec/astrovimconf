@@ -26,7 +26,7 @@ local config = {
   },
 
   -- Set colorscheme to use
-  colorscheme = "neosolarized",
+  colorscheme = "material",
 
   -- Add highlight groups in any theme
   highlights = {
@@ -253,9 +253,12 @@ local config = {
       "tpope/vim-surround",
       -- "folke/tokyonight.nvim",
       -- "kaicataldo/material.vim",
-      -- "marko-cerovac/material.nvim",
-      -- { "lalitmee/cobalt2.nvim", requires = "tjdevries/colorbuddy.nvim" },
-      { "svrana/neosolarized.nvim", requires = "tjdevries/colorbuddy.nvim" },
+      "marko-cerovac/material.nvim",
+      -- { "svrana/neosolarized.nvim", requires = "tjdevries/colorbuddy.nvim" },
+      {
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+      },
       {
         "sindrets/diffview.nvim",
         event = "BufRead",
@@ -399,16 +402,7 @@ local config = {
     dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
     dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
 
-    require("nvim-ts-autotag").setup {
-      filetypes = { "html", "xml" },
-    }
-
-    require("colorbuddy").colorscheme "neosolarized"
-    require("neosolarized").setup {
-      comment_italics = true,
-      background_set = true,
-    }
-    --
+    -- require("colorbuddy").colorscheme "neosolarized"
     -- require("neosolarized").setup {
     --   comment_italics = true,
     --   background_set = true,
